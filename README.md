@@ -1,4 +1,4 @@
-# 🔍 BiasLens — Explainable AI News Analysis System
+# BiasLens — Explainable AI News Analysis System
 
 **BiasLens** is an Explainable AI system that detects **political bias**, **emotional manipulation**, and **framing patterns** in news articles using structured linguistic and rhetorical analysis. It performs a comprehensive **7-layer analysis** and produces measurable, transparent, evidence-backed bias assessments.
 
@@ -6,10 +6,10 @@
 
 ---
 
-## 📸 Screenshots
-
-### Hero Section
-The landing page features a surreal professional design with animated SVG neural network tentacles, hand-lettered typography, and a warm vintage color palette.
+## Screenshots
+<img width="1917" height="911" alt="Screenshot 2026-03-01 024218" src="https://github.com/user-attachments/assets/dffed2e6-8c40-41af-9140-153589c89d20" />
+<img width="1891" height="867" alt="Screenshot 2026-03-01 024322" src="https://github.com/user-attachments/assets/3ac15ed5-e952-4a4d-b4b7-c8f493dbd1f9" />
+<img width="1856" height="808" alt="Screenshot 2026-03-01 024355" src="https://github.com/user-attachments/assets/df5deba4-9540-4aca-83c5-18329b8c05e6" />
 
 ### Analysis Dashboard
 After submitting an article, BiasLens presents results through an asymmetric card grid with interactive visualizations, a circular bias gauge, and color-coded severity indicators.
@@ -33,19 +33,6 @@ After submitting an article, BiasLens presents results through an asymmetric car
 - **Short Article Awareness** — Articles <300 words get capped confidence with a warning notice
 - **JSON Output** — Toggle structured JSON output matching the exact specification for programmatic use
 - **Neutral Rewrite Suggestions** — Actionable recommendations to reduce bias
-
----
-
-## 🎨 Design
-
-BiasLens uses a **"Surreal Professional"** aesthetic:
-
-- **Color Palette**: Sage green `#9CAF88`, warm cream `#F5F1E8`, dusty terracotta `#C17A5F`, rust red `#B85450`
-- **Typography**: Caveat (display headers), Inter (body), Roboto Mono (data/scores)
-- **Textures**: Subtle grain overlay via CSS pseudo-elements for a vintage film photography feel
-- **Animations**: Animated SVG neural tentacle hero, gauge fill animations, card hover lifts, loading spinners
-- **Layout**: Asymmetric CSS Grid (cards span 1 or 2 columns), generous whitespace (60-80px spacing)
-- **Responsive**: Desktop asymmetric grid → tablet 2-column → mobile single column
 
 ---
 
@@ -195,3 +182,4 @@ This project is for educational purposes. Built as part of a 4th Semester Tools 
 <p align="center">
   <strong>BiasLens</strong> — Analyze with transparency. Question everything.
 </p>
+
