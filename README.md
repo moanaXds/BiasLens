@@ -175,11 +175,12 @@ Click **"Toggle JSON Output"** to view the machine-readable output:
 
 ## 📝 License
 
-This project is for educational purposes. Built as part of a 4th Semester Tools course project.
+This project was developed for educational purposes as part of the GDG Live Pakistan community initiative.
 
 ---
 
 <p align="center">
   <strong>BiasLens</strong> — Analyze with transparency. Question everything.
 </p>
+
 
