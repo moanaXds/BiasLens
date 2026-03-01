@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BiasLens — Explainable AI system that detects political bias, emotional manipulation, and framing patterns in news articles using structured linguistic and rhetorical analysis.">
+  <title>BiasLens — AI News Bias Analysis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" role="navigation">
+    <a href="#" class="nav-brand">Bias<span>Lens</span></a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#input-section">Analyze</a></li>
+      <li><a href="#resultsSection">Results</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="hero">
+    <!-- Tentacle / Neural Data Visualization -->
+    <div class="hero-tentacles">
+      <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#9CAF88;stop-opacity:0.6"/>
+            <stop offset="100%" style="stop-color:#C17A5F;stop-opacity:0.2"/>
+          </linearGradient>
+          <linearGradient id="grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#B85450;stop-opacity:0.4"/>
+            <stop offset="100%" style="stop-color:#9CAF88;stop-opacity:0.1"/>
+          </linearGradient>
+          <linearGradient id="grad3" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:#C17A5F;stop-opacity:0.3"/>
+            <stop offset="100%" style="stop-color:#F5F1E8;stop-opacity:0"/>
+          </linearGradient>
+        </defs>
+        <!-- Data stream tendrils -->
+        <path d="M-40,200 C200,180 300,400 500,350 S700,100 900,300 S1100,500 1300,250 S1500,400 1600,200" stroke="url(#grad1)" stroke-width="2.5" fill="none" opacity="0.5">
+          <animate attributeName="d" dur="18s" repeatCount="indefinite"
+            values="M-40,200 C200,180 300,400 500,350 S700,100 900,300 S1100,500 1300,250 S1500,400 1600,200;
+                    M-40,250 C200,100 350,350 500,300 S750,200 900,350 S1050,450 1300,300 S1450,350 1600,250;
+                    M-40,200 C200,180 300,400 500,350 S700,100 900,300 S1100,500 1300,250 S1500,400 1600,200"/>
+        </path>
+        <path d="M-40,400 C150,380 280,250 480,300 S680,500 880,420 S1080,200 1280,380 S1400,300 1600,400" stroke="url(#grad2)" stroke-width="2" fill="none" opacity="0.4">
+          <animate attributeName="d" dur="22s" repeatCount="indefinite"
+            values="M-40,400 C150,380 280,250 480,300 S680,500 880,420 S1080,200 1280,380 S1400,300 1600,400;
+                    M-40,350 C150,450 280,300 480,400 S680,350 880,500 S1080,300 1280,420 S1400,350 1600,350;
+                    M-40,400 C150,380 280,250 480,300 S680,500 880,420 S1080,200 1280,380 S1400,300 1600,400"/>
+        </path>
+        <path d="M-40,550 C200,520 350,350 550,400 S750,600 950,500 S1150,300 1350,500 S1500,450 1600,550" stroke="url(#grad3)" stroke-width="1.5" fill="none" opacity="0.35">
+          <animate attributeName="d" dur="25s" repeatCount="indefinite"
+            values="M-40,550 C200,520 350,350 550,400 S750,600 950,500 S1150,300 1350,500 S1500,450 1600,550;
+                    M-40,500 C200,580 350,400 550,450 S750,500 950,550 S1150,400 1350,550 S1500,500 1600,500;
+                    M-40,550 C200,520 350,350 550,400 S750,600 950,500 S1150,300 1350,500 S1500,450 1600,550"/>
+        </path>
+        <!-- Neural network dots -->
+        <circle cx="500" cy="350" r="4" fill="#9CAF88" opacity="0.4"><animate attributeName="r" values="4;7;4" dur="4s" repeatCount="indefinite"/></circle>
+        <circle cx="900" cy="300" r="5" fill="#B85450" opacity="0.3"><animate attributeName="r" values="5;8;5" dur="5s" repeatCount="indefinite"/></circle>
+        <circle cx="1300" cy="250" r="3" fill="#C17A5F" opacity="0.35"><animate attributeName="r" values="3;6;3" dur="3.5s" repeatCount="indefinite"/></circle>
+        <circle cx="200" cy="180" r="4" fill="#9CAF88" opacity="0.25"><animate attributeName="r" values="4;6;4" dur="6s" repeatCount="indefinite"/></circle>
+        <circle cx="700" cy="450" r="3" fill="#C17A5F" opacity="0.3"><animate attributeName="r" values="3;5;3" dur="4.5s" repeatCount="indefinite"/></circle>
+        <!-- Branching paths -->
+        <path d="M500,350 C520,280 600,250 650,200" stroke="#9CAF88" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M500,350 C480,420 420,450 380,500" stroke="#C17A5F" stroke-width="1" fill="none" opacity="0.15"/>
+        <path d="M900,300 C920,220 980,180 1050,160" stroke="#B85450" stroke-width="1" fill="none" opacity="0.2"/>
+        <path d="M900,300 C880,380 820,420 760,450" stroke="#9CAF88" stroke-width="1" fill="none" opacity="0.15"/>
+        <path d="M1300,250 C1280,180 1220,140 1150,120" stroke="#C17A5F" stroke-width="1" fill="none" opacity="0.15"/>
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">Explainable AI System</div>
+      <h1 class="hero-title">Bias<span class="highlight">Lens</span></h1>
+      <p class="hero-subtitle">
+        Detect political bias, emotional manipulation, and framing patterns in news articles
+        through transparent, evidence-backed 7-layer linguistic analysis.
+      </p>
+      <div class="hero-features">
+        <span class="hero-feature-tag"><span class="dot" style="background:#B85450"></span> Emotional Tone</span>
+        <span class="hero-feature-tag"><span class="dot" style="background:#C17A5F"></span> Loaded Language</span>
+        <span class="hero-feature-tag"><span class="dot" style="background:#9CAF88"></span> Framing Analysis</span>
+        <span class="hero-feature-tag"><span class="dot" style="background:#7aafc8"></span> Balance Check</span>
+        <span class="hero-feature-tag"><span class="dot" style="background:#c9a45c"></span> Propaganda Detection</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INPUT SECTION ========== -->
+  <section class="input-section" id="input-section">
+    <div class="input-card">
+      <div class="input-header">
+        <div class="input-header-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h2>Paste Your <span>Article</span></h2>
+      </div>
+
+      <div class="textarea-wrap">
+        <textarea
+          id="articleInput"
+          class="article-input"
+          placeholder="Paste your news article here for a comprehensive 7-layer bias analysis. The system will detect emotional manipulation, loaded language, framing patterns, and more..."
+          spellcheck="false"
+        ></textarea>
+        <div class="word-count" id="wordCount">0 words</div>
+      </div>
+
+      <div class="input-actions">
+        <button class="btn-analyze" id="analyzeBtn">
+          <span class="btn-text">Analyze Article</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <div class="spinner"></div>
+        </button>
+        <button class="btn-clear" id="clearBtn">Clear</button>
+        <span class="input-hint">Supports articles of any length — long articles get sectional analysis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESULTS SECTION ========== -->
+  <section class="results-section" id="resultsSection">
+
+    <div class="results-header">
+      <h2>Analysis Results</h2>
+      <p>7-Layer bias assessment with quantitative scoring</p>
+      <div class="article-meta">
+        <span id="metaWordCount">—</span>
+        <span>•</span>
+        <span id="metaSections">—</span>
+      </div>
+    </div>
+
+    <!-- Sectional Notice -->
+    <div class="sectional-notice hidden" id="sectionalNotice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
+      <span>Sectional analysis applied due to article length (>1200 words). The article was divided into logical sections and each was analyzed individually before computing the aggregate score.</span>
+    </div>
+
+    <!-- Short Article Notice -->
+    <div class="sectional-notice hidden" id="shortNotice" style="border-color:rgba(193,122,95,0.3);background:rgba(193,122,95,0.08);color:#C17A5F;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <span>Short article (&lt;300 words). Limited content reduces analytical certainty — confidence levels have been capped accordingly.</span>
+    </div>
+
+    <!-- ---- Summary Panel with Gauge ---- -->
+    <div class="summary-panel">
+      <div class="gauge-container" style="position:relative;">
+        <svg class="gauge-svg" viewBox="0 0 180 180">
+          <circle class="gauge-bg" cx="90" cy="90" r="80"/>
+          <circle class="gauge-fill" id="gaugeFill" cx="90" cy="90" r="80"/>
+        </svg>
+        <div class="gauge-score-text" id="gaugeScoreText" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-mono);font-size:2.8rem;font-weight:600;">—</div>
+        <div class="gauge-label">Final Bias Score</div>
+        <div class="gauge-category" id="gaugeCategory">—</div>
+      </div>
+
+      <div class="summary-details">
+        <div class="summary-item">
+          <div class="summary-item-icon" style="background:rgba(193,122,95,0.12);color:#C17A5F;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div>
+            <div class="summary-item-label">Overall Tone</div>
+            <div class="summary-item-value" id="summaryTone">—</div>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-item-icon" style="background:rgba(184,84,80,0.12);color:#B85450">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <div class="summary-item-label">Dominant Emotions</div>
+            <div class="summary-item-value" id="summaryEmotion">—</div>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-item-icon" style="background:rgba(156,175,136,0.12);color:#7a9066">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <div>
+            <div class="summary-item-label">Political Leaning</div>
+            <div class="summary-item-value" id="summaryLeaning">—</div>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-item-icon" style="background:rgba(122,175,200,0.12);color:#5b94ad">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><path d="M2 8l4 8H-2z" transform="translate(2,0)"/><path d="M18 8l4 8h-8z"/></svg>
+          </div>
+          <div>
+            <div class="summary-item-label">Balance Score</div>
+            <div class="summary-item-value mono" id="summaryBalance">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- 7 Analysis Cards (Asymmetric Grid) ---- -->
+    <div class="analysis-grid">
+
+      <!-- Card 1: Emotional Tone Analysis (spans 2) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#C17A5F,#B85450)" id="iconEmotionalTone"></div>
+          <div>
+            <div class="card-step">Step 1 of 7</div>
+            <div class="card-title">Emotional Tone</div>
+          </div>
+        </div>
+        <div class="card-body" id="emotionalToneBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Card 2: Loaded Language Detection (spans 1) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#B85450,#d46b68)" id="iconLoadedLanguage"></div>
+          <div>
+            <div class="card-step">Step 2 of 7</div>
+            <div class="card-title">Loaded Language</div>
+          </div>
+        </div>
+        <div class="card-body" id="loadedLanguageBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Card 3: Framing Analysis (spans 1) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#9CAF88,#7a9066)" id="iconFraming"></div>
+          <div>
+            <div class="card-step">Step 3 of 7</div>
+            <div class="card-title">Framing Analysis</div>
+          </div>
+        </div>
+        <div class="card-body" id="framingBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Card 4: Balance & Omission Check (spans 2) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#7aafc8,#5b94ad)" id="iconBalance"></div>
+          <div>
+            <div class="card-step">Step 4 of 7</div>
+            <div class="card-title">Balance & Omission</div>
+          </div>
+        </div>
+        <div class="card-body" id="balanceBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Card 5: Political Leaning (spans 1) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#C17A5F,#d4967e)" id="iconPolitical"></div>
+          <div>
+            <div class="card-step">Step 5 of 7</div>
+            <div class="card-title">Political Leaning</div>
+          </div>
+        </div>
+        <div class="card-body" id="politicalLeaningBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Card 6: Propaganda Techniques (spans 1) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#c9a45c,#b8903e)" id="iconPropaganda"></div>
+          <div>
+            <div class="card-step">Step 6 of 7</div>
+            <div class="card-title">Propaganda Techniques</div>
+          </div>
+        </div>
+        <div class="card-body" id="propagandaBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Card 7: Quantitative Bias Score (spans 2) -->
+      <div class="analysis-card">
+        <div class="card-header">
+          <div class="card-icon" style="background:linear-gradient(135deg,#7a9066,#9CAF88)" id="iconBiasScore"></div>
+          <div>
+            <div class="card-step">Step 7 of 7</div>
+            <div class="card-title">Quantitative Bias Score</div>
+          </div>
+        </div>
+        <div class="card-body" id="biasScoreBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Neutral Rewrite Suggestions ---- -->
+    <div class="suggestions-panel">
+      <div class="card-header">
+        <div class="card-icon" style="background:linear-gradient(135deg,#9CAF88,#b8c9a9);color:white;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18h6"/><path d="M10 22h4"/>
+            <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-step">Suggestions</div>
+          <div class="card-title">Neutral Rewrite Ideas</div>
+        </div>
+      </div>
+      <div class="card-body" id="suggestionsBody">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ---- JSON Toggle Output ---- -->
+    <div class="json-section">
+      <button class="json-toggle" id="jsonToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 3H6a2 2 0 0 0-2 2v3c0 1.1-.9 2-2 2 1.1 0 2 .9 2 2v3a2 2 0 0 0 2 2h2"/>
+          <path d="M16 3h2a2 2 0 0 1 2 2v3c0 1.1.9 2 2 2-1.1 0-2 .9-2 2v3a2 2 0 0 1-2 2h-2"/>
+        </svg>
+        <span>Toggle JSON Output</span>
+      </button>
+      <pre class="json-output" id="jsonOutput"></pre>
+    </div>
+
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-brand">BiasLens</div>
+    <p>Explainable AI for transparent news analysis. Built with evidence-backed linguistic heuristics.</p>
+    <p style="margin-top:8px;">Analyze with transparency. Question everything.</p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="icons.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Inject SVG icons into card headers -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const iconMap = {
+        iconEmotionalTone: BiasIcons.emotionalTone,
+        iconLoadedLanguage: BiasIcons.loadedLanguage,
+        iconFraming: BiasIcons.framingAnalysis,
+        iconBalance: BiasIcons.balanceCheck,
+        iconPolitical: BiasIcons.politicalLeaning,
+        iconPropaganda: BiasIcons.propaganda,
+        iconBiasScore: BiasIcons.biasScore
+      };
+      for (const [id, svg] of Object.entries(iconMap)) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = svg;
+      }
+    });
+  </script>
+
+  <!-- Shake animation for empty input -->
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+  </style>
+
+</body>
+</html>
